@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body>
+
+    <h2>Form Element Event</h2>
+    <input type="text" value="Click me" onclick="this.value='Clicked!'">
+
+    <h2>Keyboard Event</h2>
+    <input type="text" value="Press a key" onkeypress="this.value='Key Pressed!'">
+
+    <h2>Mouse Events</h2>
+    <div style="padding:10px; border:1px solid #000;"
+         onmouseover="this.style.borderColor='blue';"
+         onmouseout="this.style.borderColor='black';">
+        Hover over me!
+    </div>
+
+    <h2>Button Event</h2>
+    <button onclick="this.innerHTML = Date()">The time is?</button>
+
+</body>
+</html>

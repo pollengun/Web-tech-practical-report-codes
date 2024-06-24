@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Built-in Objects</title>
+</head>
+<body>
+
+<h1>JavaScript Built-in Objects</h1>
+
+<!-- Form object -->
+<form name="myForm">
+  Enter your name: <input type="text" name="nameField"><br>
+  <input type="button" value="Submit" onclick="displayString()">
+</form>
+
+<p id="stringOutput"></p>
+<p id="numberOutput"></p>
+<p id="booleanOutput"></p>
+<p id="dateOutput"></p>
+<p id="mathOutput"></p>
+<p id="regExpOutput"></p>
+
+<script>
+// Window object
+alert("Welcome to the JavaScript Built-in Objects Example!");
+
+// String object
+function displayString() {
+  var name = document.myForm.nameField.value;
+  var greeting = new String("Hello, " + name);
+  document.getElementById("stringOutput").innerHTML = greeting;
+}
+
+// Number object
+var piValue = new Number(Math.PI);
+document.getElementById("numberOutput").innerHTML = "Number object example: " + piValue.toFixed(2);
+
+// Boolean object
+var isAdult = new Boolean(true);
+document.getElementById("booleanOutput").innerHTML = "Boolean object example: " + isAdult;
+
+// Date object
+var currentDate = new Date();
+document.getElementById("dateOutput").innerHTML = "Date object example: " + currentDate;
+
+// Math object
+var squareRootOfTwo = Math.sqrt(2);
+document.getElementById("mathOutput").innerHTML = "Math object example: Square root of 2 is " + squareRootOfTwo;
+
+// RegExp object
+var regExp = new RegExp('ab+c', 'i');
+var testString = "Abcd";
+var result = regExp.test(testString);
+document.getElementById("regExpOutput").innerHTML = "RegExp object example: Does 'Abcd' match 'ab+c'? " + result;
+
+</script>
+
+</body>
+</html>

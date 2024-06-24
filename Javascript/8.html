@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Events Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Click event
+            $("#clickButton").click(function() {
+                alert("Button clicked!");
+            });
+
+            // Hover event
+            $("#hoverElement").hover(
+                function() {
+                    $(this).css("background-color", "yellow");
+                },
+                function() {
+                    $(this).css("background-color", "white");
+                }
+            );
+
+            // Focus event
+            $("#focusInput").focus(function() {
+                $(this).css("border", "2px solid red");
+            });
+
+            // Blur event
+            $("#blurInput").blur(function() {
+                $(this).css("border", "2px solid blue");
+            });
+
+            // Submit event
+            $("#myForm").submit(function(event) {
+                alert("Form submitted!");
+                event.preventDefault(); // Prevents the default form submission action
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="clickButton">Click Me</button>
+    <div id="hoverElement" style="width:100px; height:100px; background-color: white; border: 1px solid black; margin-top: 20px;">Hover over me</div>
+    <div style="margin-top: 20px;">
+        <input type="text" id="focusInput" placeholder="Focus on me">
+    </div>
+    <div style="margin-top: 20px;">
+        <input type="text" id="blurInput" placeholder="Blur from me">
+    </div>
+    <div style="margin-top: 20px;">
+        <form id="myForm">
+            <input type="text" placeholder="Enter something">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

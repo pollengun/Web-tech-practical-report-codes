@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON.parse() and JSON.stringify() Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#parseButton").click(function() {
+                let jsonString = $("#jsonInput").val();
+                try {
+                    let jsonObj = JSON.parse(jsonString);
+                    $("#parsedResult").text("Parsed Object: " + JSON.stringify(jsonObj, null, 2));
+                } catch (e) {
+                    $("#parsedResult").text("Error parsing JSON: " + e.message);
+                }
+            });
+
+            $("#stringifyButton").click(function() {
+                let jsonObj = {
+                    name: "John Doe",
+                    age: 30,
+                    city: "New York"
+                };
+                let jsonString = JSON.stringify(jsonObj);
+                $("#stringifiedResult").text("Stringified JSON: " + jsonString);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>JSON.parse() and JSON.stringify() Example</h1>
+    
+    <h2>Parse JSON</h2>
+    <textarea id="jsonInput" rows="4" cols="50">{"name": "Jane Doe", "age": 25, "city": "San Francisco"}</textarea>
+    <br>
+    <button id="parseButton">Parse JSON</button>
+    <p id="parsedResult"></p>
+    
+    <h2>Stringify Object</h2>
+    <button id="stringifyButton">Stringify Object</button>
+    <p id="stringifiedResult"></p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Show and Hide</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Show and hide by ID
+            $("#showById").click(function(){
+                $("#elementId").show();
+            });
+            $("#hideById").click(function(){
+                $("#elementId").hide();
+            });
+
+            // Show and hide by Class
+            $("#showByClass").click(function(){
+                $(".elementClass").show();
+            });
+            $("#hideByClass").click(function(){
+                $(".elementClass").hide();
+            });
+
+            // Show and hide by Element Type
+            $("#showByElement").click(function(){
+                $("p").show();
+            });
+            $("#hideByElement").click(function(){
+                $("p").hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Buttons for showing and hiding by ID -->
+    <button id="showById">Show by ID</button>
+    <button id="hideById">Hide by ID</button>
+    <div id="elementId" style="display:none;">This is an element with an ID</div>
+
+    <!-- Buttons for showing and hiding by Class -->
+    <button id="showByClass">Show by Class</button>
+    <button id="hideByClass">Hide by Class</button>
+    <div class="elementClass" style="display:none;">This is an element with a class</div>
+
+    <!-- Buttons for showing and hiding by Element Type -->
+    <button id="showByElement">Show by Element</button>
+    <button id="hideByElement">Hide by Element</button>
+    <p style="display:none;">This is a paragraph element</p>
+</body>
+</html>

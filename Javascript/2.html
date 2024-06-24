@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object oriented approach in JS</title>
+</head>
+
+<body>
+
+    <!-- This div will display the car information -->
+    <div id="carInfo"></div>
+
+    <script>
+        // Define a class
+        class Car {
+            constructor(brand, model) {
+                this.brand = brand;
+                this.model = model;
+            }
+
+            displayInfo() {
+                return `This car is a ${this.brand} ${this.model}.`;
+            }
+        }
+
+        // Create an object
+        const myCar = new Car('Toyota', 'Corolla');
+
+        // Get the div element and set its text content
+        document.getElementById('carInfo').textContent = myCar.displayInfo();
+    </script>
+
+</body>
+
+</html>

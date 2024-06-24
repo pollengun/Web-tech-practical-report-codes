@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Handling Example</title>
+    <style>
+        .clicked {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cookie Handling Example</h1>
+    <div>
+        <label for="cookieName">Cookie Name: </label>
+        <input type="text" id="cookieName">
+    </div>
+    <div>
+        <label for="cookieValue">Cookie Value: </label>
+        <input type="text" id="cookieValue">
+    </div>
+    <button id="setCookieBtn" onclick="setCookie()">Set Cookie</button>
+    <button id="getCookieBtn" onclick="getCookie()">Get Cookie</button>
+    <button id="deleteCookieBtn" onclick="deleteCookie()">Delete Cookie</button>
+    <p id="cookieResult"></p>
+
+    <script>
+        function setCookie() {
+            const name = document.getElementById('cookieName').value;
+            const value = document.getElementById('cookieValue').value;
+            document.cookie = `${name}=${value};path=/`;
+            document.getElementById('cookieResult').innerText = `Cookie ${name} set!`;
+            changeButtonColor('setCookieBtn');
+        }
+
+        function getCookie() {
+            const name = document.getElementById('cookieName').value + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    const value = c.substring(name.length, c.length);
+                    document.getElementById('cookieResult').innerText = `Cookie value: ${value}`;
+                    changeButtonColor('getCookieBtn');
+                    return;
+                }
+            }
+            document.getElementById('cookieResult').innerText = 'Cookie not found!';
+            changeButtonColor('getCookieBtn');
+        }
+
+        function deleteCookie() {
+            const name = document.getElementById('cookieName').value;
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            document.getElementById('cookieResult').innerText = `Cookie ${name} deleted!`;
+            changeButtonColor('deleteCookieBtn');
+        }
+
+        function changeButtonColor(buttonId) {
+            document.getElementById(buttonId).classList.add('clicked');
+        }
+    </script>
+</body>
+</html>

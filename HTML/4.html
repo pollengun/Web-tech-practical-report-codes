@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meta,audio,video and canvas</title>
+</head>
+<body>
+    <h2>Meta tag</h2>
+    <p>the character encoding for the HTML document is UTF-8, which includes most characters from all known languages and is the preferred encoding for web pages.</p>
+    <p>The width of browser has been set to match device width and initial zoom is set to 1.0</p>
+
+    <!-- Audio content -->
+    <h2>Audio Player</h2>
+    <audio controls>
+        <source src="sample-6s.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Video content -->
+    <h2>Video Player</h2>
+    <video width="320" height="240" controls>
+        <source src="sample_1280x720_surfing_with_audio.mp4" type="video/mp4">
+    </video>
+
+     <!-- Canvas for graphics -->
+     <h2>Canvas Drawing</h2>
+     <canvas id="myCanvas" width="480" height="320" style="border:1px solid #000;">
+     </canvas>
+ 
+     <script>
+         // JavaScript to draw on the canvas
+         var canvas = document.getElementById('myCanvas');
+         var ctx = canvas.getContext('2d');
+         ctx.fillStyle = '#FF0000';
+         ctx.fillRect(10, 10, 150, 100);
+
+         
+         ctx.strokeStyle = 'green';
+         ctx.strokeRect(300,10,150,100);
+     </script>
+
+</body>
+</html>
