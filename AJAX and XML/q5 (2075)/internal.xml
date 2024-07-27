@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mail [
+  <!ELEMENT mail (to, from, subject, message)>
+  <!ELEMENT to (#PCDATA)>
+  <!ELEMENT from (#PCDATA)>
+  <!ELEMENT subject (#PCDATA)>
+  <!ELEMENT message (#PCDATA)>
+]>
+<mail>
+  <to>Recipient Name</to>
+  <from>Sender Name</from>
+  <subject>Subject Line</subject>
+  <message>This is the message content.</message>
+</mail>

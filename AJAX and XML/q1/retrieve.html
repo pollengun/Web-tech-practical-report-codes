@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Data</title>
+</head>
+<body>
+  <h1>Student Information</h1>
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Branch</th>
+        <th>CGPA</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script>
+    // Function to retrieve and display student data
+    function getStudentData() {
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          const xmlDoc = this.responseXML;
+          const students = xmlDoc.getElementsByTagName("student");
+          const tableBody = document.getElementById("studentTable").getElementsByTagName("tbody")[0];
+          
+          // Clear existing table rows
+          while (tableBody.firstChild) {
+            tableBody.removeChild(tableBody.firstChild);
+          }
+          
+          // Loop through students and create table rows
+          for (let i = 0; i < students.length; i++) {
+            const student = students[i];
+            const name = student.getElementsByTagName("name")[0].textContent;
+            const id = student.getElementsByTagName("id")[0].textContent;
+            const branch = student.getElementsByTagName("branch")[0].textContent;
+            const cgpa = student.getElementsByTagName("cgpa")[0].textContent;
+            
+            const tableRow = document.createElement("tr");
+            tableRow.innerHTML = `<td>${name}</td><td>${id}</td><td>${branch}</td><td>${cgpa}</td>`;
+            tableBody.appendChild(tableRow);
+          }
+        }
+      };
+      xmlhttp.open("GET", "Class.XML", true);
+      xmlhttp.send();
+    }
+    
+    // Call the function to get student data on page load
+    getStudentData();
+  </script>
+</body>
+</html>
